@@ -16,9 +16,7 @@ import 'package:flutter/foundation.dart'
 /// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
-    if (kIsWeb) {
-      return web;
-    }
+
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
@@ -63,14 +61,6 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.lexxy.app',
   );
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCPI0urV7zkiF1Y7DMANcQnGhHgpyg1DoI',
-    appId: '1:1039711917059:web:75c0909d9368234553aa36',
-    messagingSenderId: '1039711917059',
-    projectId: 'laxxy-9dc6d',
-    authDomain: 'laxxy-9dc6d.firebaseapp.com',
-    storageBucket: 'laxxy-9dc6d.firebasestorage.app',
-    measurementId: 'G-H83DHMEERR',
-  );
+
 
 }

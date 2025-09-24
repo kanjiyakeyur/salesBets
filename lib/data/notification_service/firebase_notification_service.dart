@@ -142,14 +142,14 @@ class NotificationService {
       try {
         apnsToken = await _firebaseMessaging.getAPNSToken();
         if (apnsToken != null) {
-          print('APNs token received: $apnsToken');
+          // print('APNs token received: $apnsToken');
           break;
         }
       } catch (e) {
-        print('Waiting for APNs token... attempt ${attempts + 1}');
+        // print('Waiting for APNs token... attempt ${attempts + 1}');
       }
 
-      print('apns attempt token : $attempts');
+      // print('apns attempt token : $attempts');
       attempts++;
       await Future.delayed(const Duration(seconds: 1));
     }
