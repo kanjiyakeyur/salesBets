@@ -114,7 +114,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions.add(
         CustomIconButton(
           onTap: () async {
-            // NavigatorService.pushNamed(AppRoutes.settingScreen);
+            NavigatorService.pushNamed(AppRoutes.settingScreen);
           },
           height: 40.h,
           width: 40.h,
