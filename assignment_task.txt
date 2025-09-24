@@ -1,0 +1,143 @@
+Good Morning,
+Thank you for moving forward to the technical round of our Flutter recruitment process. This assignment will assess your technical ability, creativity, and problem-solving skills in building a cutting-edge Flutter application.
+
+Project Concept
+We are building Sales Bets, a platform inspired by https://salesbets.com. Think FanDuel for business challenges, but with one key difference: users can win money or rewards, but they cannot lose anything they’ve staked.
+Users bet on teams achieving business milestones, follow teams and athletes, and experience live streaming events directly in the app.
+
+Core Objectives
+Please create a Flutter application that showcases:
+Home / Dashboard
+
+
+Display ongoing business challenges and events.
+
+
+Ability to place “no-loss” bets on teams (users can win but not lose).
+
+
+Display trending teams/athletes.
+
+
+Teams & Athletes
+
+
+Profiles with performance stats.
+
+
+Follow/unfollow teams and receive notifications of activity.
+
+
+Showcase leaderboards with earnings or achievements.
+
+
+Live Streaming
+
+
+Integrate a live streaming component allowing teams/athletes to broadcast events.
+
+
+Include basic chat/comments overlay during the stream.
+
+
+Streams should be visible on both team and event pages.
+
+
+Betting Workflow
+
+
+A simple betting interface allowing users to choose a team and stake credits.
+
+
+No-loss mechanic: Credits never decrease; users only gain if the team succeeds.
+
+
+Real-time updates on results.
+
+
+A “win” experience with animations, achievements, or monetary rewards when a challenge is completed.
+
+
+Modern UI/UX
+
+
+Create a beautiful onboarding walkthrough for first-time users explaining the “win but never lose” system.
+
+
+Use a clean, modern design (dark mode or vibrant accent colors encouraged).
+
+
+Intuitive navigation between Home, Teams, Live Streams, and Profile pages.
+
+
+
+Backend / Firebase Integration
+We highly encourage you to demonstrate backend integration using Firebase:
+Authentication – Email/password or social login.
+
+
+Cloud Firestore – Store user profiles, teams, events, bets, and rewards.
+
+
+Firebase Storage – Host images, video thumbnails, or streaming metadata.
+
+
+Firebase Cloud Messaging (FCM) – Push notifications for live streams or team updates.
+
+
+Points or Wallet System – Manage user credits that cannot be lost but can be increased by winning bets.
+
+
+
+Cool Bonus Features (Optional but Will Impress Us)
+Shareable live streams: Allow users to share a live stream link with friends.
+
+
+Real-time chat using Firestore: Chat during live streams or on team pages.
+
+
+Achievements & Badges: Award badges for users who follow teams or place bets.
+
+
+Dark/Light Mode toggle.
+
+
+In-app wallet/credit system with “only gain” mechanics.
+
+
+Animated betting widgets: Odds sliders, timers, or countdowns.
+
+
+
+Deliverables (Due within 24 hours):
+Flutter source code (GitHub repo or zip file).
+
+
+Loom video walkthrough explaining your code architecture, decisions, and how the app works.
+
+
+Send all deliverables back to [this email address] or directly to the recruiter once complete.
+
+
+
+Evaluation Criteria
+Functionality: How well you implemented the requested features.
+
+
+Architecture & Code Quality: Clean, maintainable, and well-structured code.
+
+
+UI/UX Design: Modern, appealing, and intuitive.
+
+
+Firebase Integration: Effective use of Firebase for real-time data and streaming.
+
+
+Creativity & Innovation: Any additional features that enhance the user experience.
+
+
+
+We’re excited to see how you approach this assignment. Please don’t worry about perfect polish — we’re more interested in your thinking process, technical execution, and creativity than a production-ready app.
+Thank you for your time and effort, and good luck!
+Best regards,
+Next Era Media Group
