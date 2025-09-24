@@ -61,7 +61,7 @@ class AuthScreen extends StatelessWidget {
         radius: BorderRadius.circular(12.h),
       ),
       SizedBox(height: 10.h),
-      Text("Sales Bets", style: CustomTextStyles.logoText),
+      Text("Sales Bets", style: CustomTextStyles.primaryS28W500),
       SizedBox(height: 40.h),
 
       // Auth Mode Toggle
@@ -78,21 +78,16 @@ class AuthScreen extends StatelessWidget {
                         context.read<AuthBloc>().add(SwitchToSignInEvent());
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 12.h),
-                        decoration: BoxDecoration(
-                          color: state.authMode == AuthMode.emailSignIn
-                              ? appTheme.primary : Colors.transparent,
-                          border: Border.all(color: appTheme.primary),
-                          borderRadius: BorderRadius.circular(8.h),
-                        ),
+                        padding: EdgeInsets.symmetric(vertical: 14.h),
+                        decoration: state.authMode == AuthMode.emailSignIn
+                            ? AppDecoration.fillPrimaryB10
+                            : AppDecoration.borderPrimaryWithPrimaryLightB10,
                         child: Text(
                           "Sign In",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: state.authMode == AuthMode.emailSignIn
-                                ? Colors.white : appTheme.primary,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: state.authMode == AuthMode.emailSignIn
+                              ? CustomTextStyles.whiteS16W400
+                              : CustomTextStyles.primaryS16W500,
                         ),
                       ),
                     ),
@@ -104,21 +99,16 @@ class AuthScreen extends StatelessWidget {
                         context.read<AuthBloc>().add(SwitchToSignUpEvent());
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 12.h),
-                        decoration: BoxDecoration(
-                          color: state.authMode == AuthMode.emailSignUp
-                              ? appTheme.primary : Colors.transparent,
-                          border: Border.all(color: appTheme.primary),
-                          borderRadius: BorderRadius.circular(8.h),
-                        ),
+                        padding: EdgeInsets.symmetric(vertical: 14.h),
+                        decoration: state.authMode == AuthMode.emailSignUp
+                            ? AppDecoration.fillPrimaryB10
+                            : AppDecoration.borderPrimaryWithPrimaryLightB10,
                         child: Text(
                           "Sign Up",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: state.authMode == AuthMode.emailSignUp
-                                ? Colors.white : appTheme.primary,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: state.authMode == AuthMode.emailSignUp
+                              ? CustomTextStyles.whiteS16W400
+                              : CustomTextStyles.primaryS16W500,
                         ),
                       ),
                     ),
@@ -244,10 +234,7 @@ class AuthScreen extends StatelessWidget {
                     onTap: () => _onForgotPassword(context),
                     child: Text(
                       "Forgot Password?",
-                      style: TextStyle(
-                        color: appTheme.primary,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: CustomTextStyles.primaryS16W500,
                     ),
                   ),
                 ),
@@ -265,13 +252,13 @@ class AuthScreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Divider(color: appTheme.black, height: 1.h, thickness: 1.h),
+                    child: Divider(color: appTheme.primaryGray, height: 1.h, thickness: 1.h),
                   ),
                   SizedBox(width: 25.h),
                   Text("lbl_or".tr, style: CustomTextStyles.blackS16W400),
                   SizedBox(width: 25.h),
                   Expanded(
-                    child: Divider(color: appTheme.black, height: 1.h, thickness: 1.h),
+                    child: Divider(color: appTheme.primaryGray, height: 1.h, thickness: 1.h),
                   ),
                 ],
               ),
@@ -315,8 +302,8 @@ class AuthScreen extends StatelessWidget {
       child: GestureDetector(
         onTap: onPressed,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 12.h),
-          decoration: AppDecoration.borderPrimaryB10,
+          padding: EdgeInsets.symmetric(horizontal: 12.h, vertical: 14.h),
+          decoration: AppDecoration.borderPrimaryWithPrimaryLightB10,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -328,7 +315,7 @@ class AuthScreen extends StatelessWidget {
               SizedBox(width: 10.h),
               Text(
                 text,
-                style: CustomTextStyles.blackS16W400,
+                style: CustomTextStyles.primaryS16W500,
               ),
             ],
           ),
@@ -339,11 +326,6 @@ class AuthScreen extends StatelessWidget {
 
 
 
-  void _onTapNext(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      context.read<AuthBloc>().add(OnClickSubmitEvent());
-    }
-  }
 
   void _onTapEmailAuth(BuildContext context) {
     if (_formKey.currentState!.validate()) {
@@ -381,11 +363,18 @@ class AuthScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Reset Password"),
+          backgroundColor: appTheme.background,
+          shape: RoundedRectangleBorder(
+            borderRadius: CustomBorderRadiusStyle.border10,
+          ),
+          title: Text("Reset Password", style: CustomTextStyles.blackS20W600),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Enter your email address to receive a password reset link."),
+              Text(
+                "Enter your email address to receive a password reset link.",
+                style: CustomTextStyles.blackS16W400,
+              ),
               SizedBox(height: 16.h),
               CustomTextFormField(
                 controller: emailController,
@@ -403,9 +392,15 @@ class AuthScreen extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text("Cancel"),
+              child: Text("Cancel", style: CustomTextStyles.primaryS16W500),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: appTheme.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: CustomBorderRadiusStyle.border10,
+                ),
+              ),
               onPressed: () {
                 if (emailController.text.isNotEmpty) {
                   context.read<AuthBloc>().add(
@@ -414,7 +409,7 @@ class AuthScreen extends StatelessWidget {
                   Navigator.of(context).pop();
                 }
               },
-              child: Text("Send Reset Link"),
+              child: Text("Send Reset Link", style: CustomTextStyles.whiteS16W400),
             ),
           ],
         );
