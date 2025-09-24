@@ -1,4 +1,5 @@
 import 'package:baseproject/widgets/custom_app_bar.dart';
+import 'package:baseproject/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -68,19 +69,31 @@ class SettingScreen extends StatelessWidget {
               SizedBox(height: 16.h),
               Row(
                 children: [
-                  CircleAvatar(
-                    radius: 30.h,
-                    backgroundColor: appTheme.primaryGray,
-                    backgroundImage: user?.photoURL != null
-                        ? NetworkImage(user!.photoURL!)
-                        : null,
-                    child: user?.photoURL == null
-                        ? Icon(
-                            Icons.person,
-                            size: 30.h,
-                            color: appTheme.primary,
-                          )
-                        : null,
+                  Container(
+                    height: 60.h,
+                    width: 60.h,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: appTheme.primaryLight,
+                      border: Border.all(
+                        color: appTheme.primary,
+                        width: 2.h,
+                      ),
+                    ),
+                    child: ClipOval(
+                      child: user?.photoURL != null
+                          ? CustomImageView(
+                              imagePath: user!.photoURL!,
+                              height: 60.h,
+                              width: 60.h,
+                              fit: BoxFit.cover,
+                            )
+                          : Icon(
+                              Icons.person,
+                              size: 30.h,
+                              color: appTheme.primary,
+                            ),
+                    ),
                   ),
                   SizedBox(width: 16.h),
                   Expanded(
@@ -97,14 +110,6 @@ class SettingScreen extends StatelessWidget {
                           style: CustomTextStyles.blackS14W600,
                         ),
                         SizedBox(height: 8.h),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 4.h),
-                          decoration: AppDecoration.fillPrimaryB10,
-                          child: Text(
-                            userState.isAuthenticated == true ? "Verified" : "Not Verified",
-                            style: CustomTextStyles.whiteS16W400.copyWith(fontSize: 12.fSize),
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -145,22 +150,25 @@ class SettingScreen extends StatelessWidget {
 
 
   Widget _buildInfoRow(String label, String value) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 6.h),
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 4.h),
+      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.h),
+      decoration: AppDecoration.borderPrimaryB10,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 120.h,
+            width: 110.h,
             child: Text(
               "$label:",
-              style: CustomTextStyles.blackS14W600,
+              style: CustomTextStyles.primaryS16W500,
             ),
           ),
           Expanded(
             child: Text(
               value,
               style: CustomTextStyles.blackS16W400,
+              textAlign: TextAlign.end,
             ),
           ),
         ],
@@ -169,22 +177,15 @@ class SettingScreen extends StatelessWidget {
   }
 
   Widget _buildLogoutButton(BuildContext context) {
-    return SizedBox(
+    return CustomElevatedButton(
+      text: "Logout",
       width: double.maxFinite,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: appTheme.redA200,
-          shape: RoundedRectangleBorder(
-            borderRadius: CustomBorderRadiusStyle.border10,
-          ),
-          padding: EdgeInsets.symmetric(vertical: 16.h),
-        ),
-        onPressed: () => _showLogoutConfirmation(context),
-        child: Text(
-          "Logout",
-          style: CustomTextStyles.whiteS16W400,
-        ),
+      height: 50.h,
+      decoration: BoxDecoration(
+        color: appTheme.redA200,
+        borderRadius: CustomBorderRadiusStyle.border10,
       ),
+      onPressed: () => _showLogoutConfirmation(context),
     );
   }
 
@@ -203,22 +204,33 @@ class SettingScreen extends StatelessWidget {
             style: CustomTextStyles.blackS16W400,
           ),
           actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text("Cancel", style: CustomTextStyles.primaryS16W500),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: appTheme.redA200,
-                shape: RoundedRectangleBorder(
-                  borderRadius: CustomBorderRadiusStyle.border10,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: CustomElevatedButton(
+                    text: "Cancel",
+                    height: 45.h,
+                    decoration: AppDecoration.borderPrimaryWithPrimaryLightB10,
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
                 ),
-              ),
-              onPressed: () async {
-                Navigator.of(context).pop(); // Close dialog
-                await _performLogout(context);
-              },
-              child: Text("Logout", style: CustomTextStyles.whiteS16W400),
+                SizedBox(width: 12.h),
+                Expanded(
+                  child: CustomElevatedButton(
+                    text: "Logout",
+                    height: 45.h,
+                    decoration: BoxDecoration(
+                      color: appTheme.redA200,
+                      borderRadius: CustomBorderRadiusStyle.border10,
+                    ),
+                    onPressed: () async {
+                      Navigator.of(context).pop(); // Close dialog
+                      await _performLogout(context);
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         );
