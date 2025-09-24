@@ -3,6 +3,7 @@ import '../../core/app_export.dart';
 import '../../core/utils/hive_database_handler.dart';
 import '../../data/models/user/user.dart';
 import '../../data/models/verifyOtp/post_verify_otp_resp.dart';
+import '../../data/services/auth_service.dart';
 
 part 'user_event.dart';
 
@@ -60,6 +61,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   Future<void> _onLogout(LogoutEvent event, Emitter<UserState> emit) async {
     await PrefUtils().clearPreferencesData();
     await HiveDatabaseHandler().clearHiveDatabase();
+    // Sign out from Firebase
+    await AuthService.signOut();
 
     emit(
       state.copyWith(

@@ -225,8 +225,8 @@ class SettingScreen extends StatelessWidget {
                       borderRadius: CustomBorderRadiusStyle.border10,
                     ),
                     onPressed: () async {
-                      Navigator.of(context).pop(); // Close dialog
                       await _performLogout(context);
+                      Navigator.of(context).pop(); // Close dialog
                     },
                   ),
                 ),
@@ -239,21 +239,8 @@ class SettingScreen extends StatelessWidget {
   }
 
   Future<void> _performLogout(BuildContext context) async {
-    if (!context.mounted) return;
 
     try {
-      // Show loading
-      ProgressDialogUtils.showProgressDialog();
-
-      // Sign out from Firebase
-      await AuthService.signOut();
-
-      // Check if context is still mounted before using it
-      if (!context.mounted) {
-        ProgressDialogUtils.hideProgressDialog();
-        return;
-      }
-
       // Update user bloc
       context.read<UserBloc>().add(LogoutEvent(
         callback: () {
