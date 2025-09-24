@@ -47,21 +47,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB_HA93fFhUR2yY2feAGdLu7QWa368s2rA',
-    appId: '1:1039711917059:android:e29a95145c10b15853aa36',
-    messagingSenderId: '1039711917059',
-    projectId: 'laxxy-9dc6d',
-    storageBucket: 'laxxy-9dc6d.firebasestorage.app',
+    apiKey: 'AIzaSyBq2Tkv0tAmoTZVxAzicXhRLGbqZAiwYkY',
+    appId: '1:770931576990:android:a6137d2102ba1dfdc8eb8f',
+    messagingSenderId: '770931576990',
+    projectId: 'sels-demo',
+    storageBucket: 'sels-demo.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBVnesjmti3_LBQooa4vQcCZ2NuuHL4c5I',
-    appId: '1:1039711917059:ios:d39fb2100003643b53aa36',
-    messagingSenderId: '1039711917059',
-    projectId: 'laxxy-9dc6d',
-    storageBucket: 'laxxy-9dc6d.firebasestorage.app',
-    androidClientId: '1039711917059-b1rcqss7grsmj7brmvlq1qb55fv8it8p.apps.googleusercontent.com',
-    iosClientId: '1039711917059-tquhs6ikoptjm16mjv0uj2uefp3ij0a8.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCQoWDAMTW_HTyN3tEqe8ASPZ_j-sZoohI',
+    appId: '1:770931576990:ios:837d739e2235e692c8eb8f',
+    messagingSenderId: '770931576990',
+    projectId: 'sels-demo',
+    storageBucket: 'sels-demo.firebasestorage.app',
     iosBundleId: 'com.lexxy.app',
   );
 

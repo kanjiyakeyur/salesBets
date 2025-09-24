@@ -2,24 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>1039711917059-tquhs6ikoptjm16mjv0uj2uefp3ij0a8.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1039711917059-tquhs6ikoptjm16mjv0uj2uefp3ij0a8</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>1039711917059-b1rcqss7grsmj7brmvlq1qb55fv8it8p.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBVnesjmti3_LBQooa4vQcCZ2NuuHL4c5I</string>
+	<string>AIzaSyCQoWDAMTW_HTyN3tEqe8ASPZ_j-sZoohI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1039711917059</string>
+	<string>770931576990</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.lexxy.app</string>
 	<key>PROJECT_ID</key>
-	<string>laxxy-9dc6d</string>
+	<string>sels-demo</string>
 	<key>STORAGE_BUCKET</key>
-	<string>laxxy-9dc6d.firebasestorage.app</string>
+	<string>sels-demo.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1039711917059:ios:d39fb2100003643b53aa36</string>
+	<string>1:770931576990:ios:837d739e2235e692c8eb8f</string>
 </dict>
 </plist>
