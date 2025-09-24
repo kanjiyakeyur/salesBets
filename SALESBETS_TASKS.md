@@ -5,11 +5,11 @@ This file contains the sequential task breakdown for building the Sales Bets Flu
 ## Phase 1: Foundation & Setup
 
 ### 1. Project Setup & Configuration
-- [ ] Update app branding (name, bundle ID, icons)
-- [ ] Configure Firebase project for Sales Bets
-- [ ] Set up proper app icons and splash screens
-- [ ] Update theme colors for Sales Bets branding
-- [ ] Configure proper navigation structure
+- [x] Update app branding (name, bundle ID, icons)
+- [x] Configure Firebase project for Sales Bets
+- [x] Set up proper app icons and splash screens
+- [x] Update theme colors for Sales Bets branding
+- [x] Configure proper navigation structure
 
 ### 2. Data Models & Firebase Schema
 - [ ] Create User model (profile, credits, followed teams, betting history)
@@ -24,12 +24,12 @@ This file contains the sequential task breakdown for building the Sales Bets Flu
 ## Phase 2: Authentication & User Management
 
 ### 3. Authentication System
-- [ ] Implement email/password authentication
-- [ ] Add Google Sign-In integration
-- [ ] Create user profile creation flow
-- [ ] Implement user profile editing
-- [ ] Add logout functionality
-- [ ] Handle authentication state persistence
+- [x] Implement email/password authentication
+- [x] Add Google Sign-In integration
+- [x] Create user profile creation flow
+- [x] Implement user profile editing
+- [x] Add logout functionality
+- [x] Handle authentication state persistence
 
 ### 4. User Profile & Wallet System
 - [ ] Create user profile screen

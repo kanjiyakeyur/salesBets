@@ -27,3 +27,11 @@ class LogoutEvent extends UserEvent {
   @override
   List<Object?> get props => [callback];
 }
+
+class SalesBetLoginEvent extends UserEvent {
+  SalesBetLoginEvent({this.callback, required this.user});
+  final Function? callback;
+  final dynamic user; // SalesBetUser
+  @override
+  List<Object?> get props => [callback, user];
+}

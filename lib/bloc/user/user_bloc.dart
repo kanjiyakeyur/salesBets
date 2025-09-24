@@ -15,6 +15,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<InitialUserEvent>(_onInitialize);
     on<LoginEvent>(_onLogin);
     on<LogoutEvent>(_onLogout);
+    on<SalesBetLoginEvent>(_onSalesBetLogin);
   }
 
   _onInitialize(InitialUserEvent event, Emitter<UserState> emit) async {
@@ -70,6 +71,24 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       await event.callback!();
     }
     NavigatorService.pushNamedAndRemoveUntil(AppRoutes.authScreen);
+  }
+
+  Future<void> _onSalesBetLogin(SalesBetLoginEvent event, Emitter<UserState> emit) async {
+    // Store sales bet user data in preferences
+    // For now, we'll just store basic info - can be extended later
+    await PrefUtils().setToken('authenticated'); // Simple token for now
+
+    emit(
+      state.copyWith(
+        isAuthenticated: true,
+        // We'll store the SalesBetUser as the user for now
+        // In the future, we might want to convert it to the existing User model
+      ),
+    );
+
+    if (event.callback != null) {
+      await event.callback!();
+    }
   }
 
 }
