@@ -6,7 +6,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-import '../repository/auth_repo.dart';
 import '../../core/utils/navigator_service.dart';
 import 'notification_handler.dart';
 import 'notification_model.dart';
