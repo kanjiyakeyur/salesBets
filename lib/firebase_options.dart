@@ -54,13 +54,13 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCQoWDAMTW_HTyN3tEqe8ASPZ_j-sZoohI',
-    appId: '1:770931576990:ios:837d739e2235e692c8eb8f',
+    appId: '1:770931576990:ios:802836e222df2e98c8eb8f',
     messagingSenderId: '770931576990',
     projectId: 'sels-demo',
     storageBucket: 'sels-demo.firebasestorage.app',
-    iosBundleId: 'com.lexxy.app',
+    androidClientId: '770931576990-30b27j275vc4qqr8dfr7nc3ip88s5sqd.apps.googleusercontent.com',
+    iosClientId: '770931576990-8j8pghlh081pn24tmv39r831ln89p1bg.apps.googleusercontent.com',
+    iosBundleId: 'com.baseproject.app',
   );
-
-
 
 }
