@@ -97,14 +97,22 @@ class Event {
 
 class Bet {
   String? id;
-  String? title;
+  String? userId;
+  String? userName;
+  String? userEmail;
+  double? amount;
+  String? bidType;
   String? description;
   DateTime? createdAt;
   DateTime? updatedAt;
 
   Bet({
     this.id,
-    this.title,
+    this.userId,
+    this.userName,
+    this.userEmail,
+    this.amount,
+    this.bidType,
     this.description,
     this.createdAt,
     this.updatedAt,
@@ -112,7 +120,11 @@ class Bet {
 
   Bet.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    title = json['title'];
+    userId = json['userId'];
+    userName = json['userName'];
+    userEmail = json['userEmail'];
+    amount = json['amount']?.toDouble();
+    bidType = json['bidType'];
     description = json['description'];
     createdAt = json['createdAt'] != null
         ? (json['createdAt'] is Timestamp
@@ -129,7 +141,11 @@ class Bet {
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     if (id != null) data['id'] = id;
-    if (title != null) data['title'] = title;
+    if (userId != null) data['userId'] = userId;
+    if (userName != null) data['userName'] = userName;
+    if (userEmail != null) data['userEmail'] = userEmail;
+    if (amount != null) data['amount'] = amount;
+    if (bidType != null) data['bidType'] = bidType;
     if (description != null) data['description'] = description;
     if (createdAt != null) data['createdAt'] = Timestamp.fromDate(createdAt!);
     if (updatedAt != null) data['updatedAt'] = Timestamp.fromDate(updatedAt!);
@@ -138,14 +154,22 @@ class Bet {
 
   Bet copyWith({
     String? id,
-    String? title,
+    String? userId,
+    String? userName,
+    String? userEmail,
+    double? amount,
+    String? bidType,
     String? description,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
     return Bet(
       id: id ?? this.id,
-      title: title ?? this.title,
+      userId: userId ?? this.userId,
+      userName: userName ?? this.userName,
+      userEmail: userEmail ?? this.userEmail,
+      amount: amount ?? this.amount,
+      bidType: bidType ?? this.bidType,
       description: description ?? this.description,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,

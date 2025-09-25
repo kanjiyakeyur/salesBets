@@ -78,3 +78,18 @@ class AddBetToEventEvent extends DashBoardEvent {
   @override
   List<Object?> get props => [eventId, bet, callback];
 }
+
+class RemoveBetFromEventEvent extends DashBoardEvent {
+  final String eventId;
+  final String betId;
+  final Function? callback;
+
+  RemoveBetFromEventEvent({
+    required this.eventId,
+    required this.betId,
+    this.callback,
+  });
+
+  @override
+  List<Object?> get props => [eventId, betId, callback];
+}

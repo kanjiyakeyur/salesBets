@@ -18,6 +18,7 @@ class DashBoardBloc extends Bloc<DashBoardEvent, DashBoardState> {
     on<DeleteEventEvent>(_onDeleteEvent);
     on<UpdateEventStatusEvent>(_onUpdateEventStatus);
     on<AddBetToEventEvent>(_onAddBetToEvent);
+    on<RemoveBetFromEventEvent>(_onRemoveBetFromEvent);
   }
 
   _onInit(
@@ -134,6 +135,25 @@ class DashBoardBloc extends Bloc<DashBoardEvent, DashBoardState> {
     try {
       emit(state.copyWith(isLoading: true));
       await EventService.addBetToEvent(event.eventId, event.bet);
+      add(LoadEventsEvent());
+      if (event.callback != null) {
+        await event.callback!();
+      }
+    } catch (e) {
+      emit(state.copyWith(
+        isLoading: false,
+        errorMessage: e.toString(),
+      ));
+    }
+  }
+
+  _onRemoveBetFromEvent(
+    RemoveBetFromEventEvent event,
+    Emitter<DashBoardState> emit,
+  ) async {
+    try {
+      emit(state.copyWith(isLoading: true));
+      await EventService.removeBetFromEvent(event.eventId, event.betId);
       add(LoadEventsEvent());
       if (event.callback != null) {
         await event.callback!();
