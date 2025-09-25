@@ -17,12 +17,14 @@ class ThemeHelper {
 
 // A map of custom color themes supported by the app
   Map<String, LightCodeColors> _supportedCustomColor = {
-    'lightCode': LightCodeColors()
+    'lightCode': LightCodeColors(),
+    'darkCode': DarkCodeColors()
   };
 
 // A map of color schemes supported by the app
   Map<String, ColorScheme> _supportedColorScheme = {
-    'lightCode': ColorSchemes.lightCodeColorScheme
+    'lightCode': ColorSchemes.lightCodeColorScheme,
+    'darkCode': ColorSchemes.darkCodeColorScheme
   };
 
   /// Returns the lightCode colors for the current theme.
@@ -222,6 +224,19 @@ class ColorSchemes {
     onPrimary: Color(0X66141414),
     onPrimaryContainer: Color(0XCCFDC868),
   );
+
+  static final darkCodeColorScheme = ColorScheme.dark(
+    primary: Color(0XFFBA7041),
+    primaryContainer: Color(0XFF1A1A1A),
+    surface: Color(0XFF121212),
+    background: Color(0XFF121212),
+    errorContainer: Color(0X3FFFFFFF),
+    onError: Color(0XCC34A853),
+    onErrorContainer: Color(0XFFD1D1D1),
+    onPrimary: Color(0X66FFFFFF),
+    onPrimaryContainer: Color(0XCCFDC868),
+    onSurface: Color(0XFFFFFFFF),
+  );
 }
 
 /// Class containing custom colors for a lightCode theme.
@@ -253,4 +268,37 @@ class LightCodeColors {
   Color get redA700 => Color(0XFFFF0000);
   Color get homeBg => Color(0XFFFAF9FA).withValues(alpha: 0.98);
   Color get iconBg => theme.colorScheme.primary.withValues(alpha: 0.06);
+}
+
+/// Class containing custom colors for a darkCode theme.
+class DarkCodeColors extends LightCodeColors {
+  // Override light theme colors for dark theme
+  @override
+  Color get primary => Color(0XFFBA7041);
+  @override
+  Color get primaryGray => Color(0XFF3A3A3A);
+  @override
+  Color get primaryLight => Color(0XFF2A1F1A);
+
+  @override
+  Color get background => Color(0XFF121212);
+
+  @override
+  Color get white => Color(0XFF1E1E1E);
+  @override
+  Color get black => Color(0XFFFFFFFF);
+  @override
+  Color get gray => Color(0XFFCCCCCC);
+  @override
+  Color get lightGray => Color(0XFF3A3A3A);
+
+  @override
+  Color get gradient1 => Color(0XFF2A2A2A);
+  @override
+  Color get gradient2 => Color(0XFF1A1A1A);
+
+  @override
+  Color get homeBg => Color(0XFF1A1A1A).withValues(alpha: 0.98);
+  @override
+  Color get iconBg => theme.colorScheme.primary.withValues(alpha: 0.15);
 }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 // Project imports:
 import '../../../core/app_export.dart';
 import '../../../bloc/user/user_bloc.dart';
+import '../../../theme/bloc/theme_bloc.dart';
 import '../../../data/services/auth_service.dart';
 import '../../../core/utils/progress_dialog_utils.dart';
 import '../../../core/utils/utility.dart';
@@ -39,6 +40,10 @@ class SettingScreen extends StatelessWidget {
 
               // Account Settings Section
               _buildAccountSettingsSection(),
+              SizedBox(height: 24.h),
+
+              // Theme Settings Section
+              _buildThemeSettingsSection(),
               SizedBox(height: 24.h),
 
               // Logout Button
@@ -173,6 +178,74 @@ class SettingScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildThemeSettingsSection() {
+    return BlocBuilder<ThemeBloc, ThemeState>(
+      builder: (context, themeState) {
+        return Container(
+          padding: EdgeInsets.all(16.h),
+          decoration: AppDecoration.borderPrimaryWithPrimaryLightB10,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Theme Settings",
+                style: CustomTextStyles.blackS18W600,
+              ),
+              SizedBox(height: 16.h),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.h),
+                decoration: AppDecoration.borderPrimaryB10,
+                child: Row(
+                  children: [
+                    Icon(
+                      themeState.themeType == 'lightCode'
+                          ? Icons.light_mode
+                          : Icons.dark_mode,
+                      color: appTheme.primary,
+                      size: 24.h,
+                    ),
+                    SizedBox(width: 12.h),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "App Theme",
+                            style: CustomTextStyles.blackS16W600,
+                          ),
+                          SizedBox(height: 4.h),
+                          Text(
+                            themeState.themeType == 'lightCode'
+                                ? "Light Theme"
+                                : "Dark Theme",
+                            style: CustomTextStyles.blackS14W600,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Switch(
+                      value: themeState.themeType == 'darkCode',
+                      onChanged: (bool value) {
+                        final newTheme = value ? 'darkCode' : 'lightCode';
+                        context.read<ThemeBloc>().add(
+                          ThemeChangeEvent(themeType: newTheme),
+                        );
+                      },
+                      activeColor: appTheme.primary,
+                      activeTrackColor: appTheme.primaryLight,
+                      inactiveThumbColor: appTheme.lightGray,
+                      inactiveTrackColor: appTheme.primaryGray,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
