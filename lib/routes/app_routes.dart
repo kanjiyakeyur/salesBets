@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../presentation/auth_screen/auth_screen.dart';
 import '../presentation/dashboard/screens/dash_board_screen.dart';
+import '../presentation/dashboard/screens/add_event_screen.dart';
 import '../presentation/splash_screen/splash_screen.dart';
 
 
@@ -14,12 +15,13 @@ class AppRoutes {
   static const String splashScreen = '/';
   static const String authScreen = '/auth_screen';
   static const String settingScreen = '/setting_screen';
+  static const String addEventScreen = '/add_event_screen';
 
   static Map<String, WidgetBuilder> get routes => {
     splashScreen: SplashScreen.builder,
     authScreen: AuthScreen.builder,
     dashboardScreen: DashboardScreen.builder,
     settingScreen: SettingScreen.builder,
-
+    addEventScreen: AddEventScreen.builder,
   };
 }

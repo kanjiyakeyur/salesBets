@@ -8,7 +8,8 @@ import 'base_button.dart';
 
 enum CSButtonType {
   fill,
-  border
+  border,
+  red
 }
 
 class CustomElevatedButton extends BaseButton {
@@ -70,7 +71,11 @@ class CustomElevatedButton extends BaseButton {
       decoration:
           buttonState == ButtonState.disabled
               ? CustomButtonStyles.fillPrimaryGrayTL12
-              : csButtonType == CSButtonType.border ? CustomButtonStyles.borderPrimaryTL12 : CustomButtonStyles.fillPrimaryTL12,
+              : csButtonType == CSButtonType.border
+                  ? CustomButtonStyles.borderPrimaryTL12
+                  : csButtonType == CSButtonType.red
+                      ? CustomButtonStyles.fillRedTL12
+                      : CustomButtonStyles.fillPrimaryTL12,
       child: _buttonBody(),
     ),
   );

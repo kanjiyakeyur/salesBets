@@ -44,3 +44,13 @@ DateTime getStartOfTheDate(String date) {
   DateTime dateTime = DateTime.parse(date);
   return DateTime(dateTime.year, dateTime.month, dateTime.day).toUtc();
 }
+
+class DateTimeUtils {
+  static String formatDateTime(DateTime dateTime) {
+    return DateFormat(D_MMM_Y_HM).format(dateTime);
+  }
+
+  static DateTime parseDateTime(String dateTimeString) {
+    return DateFormat(D_MMM_Y_HM).parse(dateTimeString);
+  }
+}

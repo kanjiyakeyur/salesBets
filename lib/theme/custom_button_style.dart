@@ -28,4 +28,10 @@ class CustomButtonStyles {
           width: 1.h,
         ),
       );
+
+  static BoxDecoration get fillRedTL12 =>
+      BoxDecoration(
+        color: appTheme.redA700,
+        borderRadius: CustomBorderRadiusStyle.border30,
+      );
 }

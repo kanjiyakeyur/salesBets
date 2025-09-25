@@ -1,6 +1,6 @@
 final Map<String, String> en = {
   // common
-  "lbl_your_app": "your app",
+  "lbl_your_app": "Sales bets",
   "lbl_next": "Next",
   "lbl_back": "Back",
   "lbl_skip": "Skip",
